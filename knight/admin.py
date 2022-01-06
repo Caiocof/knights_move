@@ -15,7 +15,7 @@ admin.site.register(Pieces, Piece)
 
 
 class Knitgh(admin.ModelAdmin):
-    list_display = ('id','user_name', 'posisiton', 'possibilities')
+    list_display = ('id', 'user_name', 'position', 'possibilities')
     list_display_links = ('id',)
     search_fields = ('user_name',)
 

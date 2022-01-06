@@ -7,7 +7,7 @@ from rest_framework import serializers
 class KnightSerialize(serializers.ModelSerializer):
     class Meta:
         model = KnightAudits
-        fields = '__all__'
+        fields = ['position']
 
 
 class PieceSerializer(serializers.ModelSerializer):

@@ -8,7 +8,7 @@ from django.db import models
 class KnightAudits(models.Model):
     user_name = models.CharField(max_length=70)
     type_piece = models.CharField(max_length=20)
-    posisiton = models.CharField(max_length=2)
+    position = models.CharField(max_length=2)
     possibilities = models.CharField(max_length=20, blank=True)
     created_at = models.DateTimeField(default=datetime.today())
 

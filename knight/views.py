@@ -1,6 +1,7 @@
 from .serializer import KnightSerialize
 from .serializer import PieceSerializer
 from .models import Pieces
+from .models import KnightAudits
 from board.moves import knight_moves
 from board.utilits import colors
 
@@ -48,9 +49,9 @@ class PossitionKinight(GenericAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = KnightSerialize
 
-    def get(self, request, id_piece):
+    def get(self, request, id_piece, position):
 
-        position = request.data['position']
+        # position = request.data['position']
 
         if len(position) > 2:
             return Response({'result': 'position invalid'}, 404)
@@ -69,11 +70,11 @@ class PossitionKinight(GenericAPIView):
 
         }
 
-        KnightSerialize.object.create(
+        KnightAudits.objects.create(
             user_name=request.user,
             type_piece=piece.name,
-            posisiton=position,
-            possibilities=moves['result']
+            position=position,
+            possibilities=moves['possibility']
         )
         return Response(moves, 200)
 
